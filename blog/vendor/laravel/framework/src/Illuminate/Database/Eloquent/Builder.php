@@ -1237,19 +1237,6 @@ class Builder
     }
 
     /**
-     * Set the relationships that should be eager loaded while removing any previously added eager loading specifications.
-     *
-     * @param  mixed  $relations
-     * @return $this
-     */
-    public function withOnly($relations)
-    {
-        $this->eagerLoad = [];
-
-        return $this->with($relations);
-    }
-
-    /**
      * Create a new instance of the model being queried.
      *
      * @param  array  $attributes

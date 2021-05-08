@@ -39,18 +39,28 @@
       <a class="me-3 py-2 text-dark text-decoration-none" href="{{URL::to('/categories')}}">Categories</a>
       <a class="me-3 py-2 text-dark text-decoration-none" href="{{URL::to('/companies')}}">Companies</a>
       <a class="me-3 py-2 text-dark text-decoration-none" href="{{URL::to('/trainers')}}">Trainer</a>
-      <a class="me-3 py-2 text-dark text-decoration-none" href="{{URL::to('/search')}}">Search</a>
+      <form action="{{URL::to('/search')}}" class="d-flex" method="GET">
+        <input name="data_search" id="search-companies" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </nav>
   </header>
   <!-- End Header -->
   <div class="container">
     <div class="row">
         <div class="col-3">     
-          <div class="list-group">
-             @foreach($categories as $category)
-            <a href="#" class="list-group-item list-group-item-action">{!! $category->category_name!!}</a>
-            @endforeach
-          </div>
+         
+          <form action="{{URL::to('/searchCategory')}}" class="d-flex" method="GET">
+              <div class="list-group">
+              {{ Form::label('category_id', 'Category :')}} 
+              {!! Form::select('category_id', $categories, null, ['class' => 'form-control']) !!}
+              </div>
+              <button class="btn btn-outline-success" type="submit">Send</button>
+          </form>
+         
+        </div>
+        <div class="col-9">
+        
         </div>
     </div>
   </div>

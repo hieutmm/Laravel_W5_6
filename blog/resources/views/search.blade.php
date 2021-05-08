@@ -62,7 +62,7 @@
         </tr>
     </thead>
     <tbody>    
-          @foreach($results as $trainer)
+          @foreach($results as $trainer):
               <tr>
                   <th scope="row">{!!$trainer->trainer_id!!}</th>
                   <td>{!!$trainer->trainer_name!!}</td>

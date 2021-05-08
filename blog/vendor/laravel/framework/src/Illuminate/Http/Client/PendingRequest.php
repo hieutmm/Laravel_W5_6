@@ -819,7 +819,7 @@ class PendingRequest
     {
         return function ($handler) {
             return function ($request, $options) use ($handler) {
-                $promise = $handler($request, $options);
+                $promise = $handler($this->runBeforeSendingCallbacks($request, $options), $options);
 
                 return $promise->then(function ($response) use ($request, $options) {
                     optional($this->factory)->recordRequestResponsePair(

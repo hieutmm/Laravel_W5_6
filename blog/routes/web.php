@@ -5,6 +5,7 @@ use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\SearchTrainerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SearchCategory;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +25,4 @@ Route::get('/companies', [CompaniesController::class,'companies']);
 Route::get('/trainers', [TrainerController::class,'trainers']);
 Route::get('/categories', [CategoryController::class,'categories']);
 Route::get('/search', [SearchTrainerController::class,'search']);
+Route::get('/searchCategory', [SearchCategory::class,'search']);
