@@ -36,6 +36,7 @@
     </a>
 
     <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+      <a class="me-3 py-2 text-dark text-decoration-none" href="{{URL::to('/categories')}}">Categories</a>
       <a class="me-3 py-2 text-dark text-decoration-none" href="{{URL::to('/companies')}}">Companies</a>
       <a class="me-3 py-2 text-dark text-decoration-none" href="{{URL::to('/trainers')}}">Trainer</a>
       <a class="me-3 py-2 text-dark text-decoration-none" href="{{URL::to('/search')}}">Search</a>
