@@ -55,15 +55,25 @@
         <th scope="col">Name</th>
         <th scope="col">Adddress</th>
         <th scope="col">Phone</th>
+        <th scope="col">Trainer</th>
+        <th scope="col">Category</th>
         </tr>
     </thead>
     <tbody>
+   
         @foreach($companies as $company)
             <tr>
                 <th scope="row">{!!$company->company_id!!}</th>
                 <td>{!!$company->company_name!!}</td>
                 <td>{!!$company->company_address!!}</td>
                 <td>{!!$company->company_phone!!}</td>
+                <td>{!!$company->trainer['trainer_name']!!}</td>
+                <td>
+                  @foreach($company->companyCat as $cat)
+                       {!!$cat['category_name']!!}
+                  @endforeach
+               </td>
+                
             </tr>
         @endforeach
       

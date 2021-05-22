@@ -13,7 +13,7 @@ class SearchTrainerController extends Controller
         $key = $request->input('data_search');
 
         if($key){     
-            $results = $obj->search($key);
+            $results = $obj->search($key)->paginate(15);
             return view('search',['results'=>$results]);
         }
         return view('search',[]);

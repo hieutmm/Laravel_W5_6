@@ -49,7 +49,7 @@
   <div class="container">
     <div class="row">
         <div class="col-3">     
-         
+          
           <form action="{{URL::to('/searchCategory')}}" class="d-flex" method="GET">
               <div class="list-group">
               {{ Form::label('category_id', 'Category :')}} 
@@ -60,7 +60,26 @@
          
         </div>
         <div class="col-9">
-        
+            @foreach($cats as $cat)
+                <h2>{!! $cat->category_name !!}</h2>
+                <table class="table">
+                      <thead>
+                          <tr>
+                          <th scope="col">Company_id</th>
+                          <th scope="col">Company_name</th>                     
+                          </tr>
+                      </thead>
+                      <tbody>
+                      @foreach($cat->catCompanies as $company)
+                          <tr>
+                              <th scope="row">{!!$company->company_id!!}</th>
+                              <td>{!!$company->company_name!!}</td>                       
+                          </tr>
+                      @endforeach   
+                    </tbody>
+              </table>
+            @endforeach
+            {{ $cats ->links()}}
         </div>
     </div>
   </div>

@@ -55,6 +55,7 @@
         <th scope="col">Name</th>
         <th scope="col">Adddress</th>
         <th scope="col">Phone</th>
+        <th scope="col">Company</th>
         </tr>
     </thead>
     <tbody>
@@ -64,6 +65,7 @@
                 <td>{!!$trainer->trainer_name!!}</td>
                 <td>{!!$trainer->trainer_email!!}</td>
                 <td>{!!$trainer->trainer_phone!!}</td>
+                <td>{!!$trainer->company['company_name']!!}</td>
             </tr>
         @endforeach
     </tbody>

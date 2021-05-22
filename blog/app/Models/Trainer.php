@@ -11,7 +11,11 @@ class Trainer extends Model
 
     public function search($value)
     {
-        return self::where("trainer_name","LIKE","%{$value}%")->paginate(10);
+        return self::where("trainer_name","LIKE","%{$value}%");
     }
-   
+    
+    public function company()
+    {
+        return $this->hasOne(Company::class, 'company_id', 'company_id');
+    }
 }

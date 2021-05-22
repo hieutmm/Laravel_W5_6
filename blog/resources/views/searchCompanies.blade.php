@@ -50,6 +50,7 @@
     <h1 class="display-4 fw-normal">Search Results</h1>
     <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
   </div>
+
   @isset($results) 
     <!-- table -->
     <table class="table">
@@ -61,6 +62,8 @@
         <th scope="col">Address</th>
         <th scope="col">Code</th>
         <th scope="col">Phone</th>
+        <th scope="col">Category</th>
+        
         </tr>
     </thead>
     <tbody>    
@@ -72,6 +75,7 @@
                   <td>{!!$company->company_address!!}</td>
                   <td>{!!$company->company_code!!}</td>
                   <td>{!!$company->company_phone!!}</td>
+                  <td>{!!$company->category_id!!}</td>
               </tr>
           @endforeach 
     </tbody>

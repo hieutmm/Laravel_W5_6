@@ -11,6 +11,7 @@ class CategoryController extends Controller
     {      
         $obj = new Category();
         $categories = $obj->pluck('category_name', 'category_id');
-        return view('categories',['categories'=>$categories]);
+        $cats = $obj->paginate(2);
+        return view('categories',['categories'=>$categories],['cats'=>$cats]);
     }
 }
