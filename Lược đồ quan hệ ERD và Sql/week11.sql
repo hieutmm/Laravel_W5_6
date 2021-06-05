@@ -1,10 +1,10 @@
 a) Liệt kê danh sách Giảng viên
 
-SELECT * FROM teachers
+SELECT * FROM teachers JOIN users ON users.`user_id` = teachers.`user_id` 
 
 b) Liệt kê danh sách Sinh viên
 
-SELECT * FROM students
+SELECT * FROM students JOIN users ON users.`user_id` = students.`user_id`
 
 c) Liệt kê các môn học
 
