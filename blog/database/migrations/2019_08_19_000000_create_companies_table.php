@@ -1,10 +1,12 @@
+
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Companies extends Migration
+class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +16,17 @@ class Companies extends Migration
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->increments('company_id'); 
-            $table->string('company_name',55);
+            $table->id('company_id');
+            $table->string('company_name',255);
             $table->string('company_web',255);
-            $table->string('company_address',500);
-            $table->string('company_code',55);
-            $table->string('company_phone',55);
-            $table->integer('category_id',false);
+            $table->string('company_address',255);
+            $table->string('company_code',255);     
+            $table->string('company_phone',255); 
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('delete_at')->nullable();
+            $table->integer('status',false); 
         });
-        
-        
     }
 
     /**

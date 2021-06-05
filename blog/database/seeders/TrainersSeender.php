@@ -1,13 +1,15 @@
 <?php
 
 namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Database\Migrations;
 
-class TrainerSeeder extends Seeder
+
+class TrainersSeender extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,12 +18,12 @@ class TrainerSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 50; $i++){
+        for ($i=0; $i <= 20; $i++){
             DB::table('trainers')->insert([          
-            'trainer_name' => 'hieu',
-            'company_id' => rand(1,1000000),
-            'trainer_email' => Str::random(20),
-            'trainer_phone' => '123456',
+            'is_leader' => mt_rand(0, 20),
+            'company_id' => mt_rand(0, 20),
+            'user_id' => mt_rand(0, 20),
+            'status' => 1,
             ]);
         }
     }
