@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
+
 class CustomAuthController extends Controller
 {
     public function index()
@@ -21,8 +24,8 @@ class CustomAuthController extends Controller
             'password' => 'required',
         ]);
    
-        $credentials = $request->only('user_email', 'user_password');
-        if (Auth::attempt($credentials)) {
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt(['user_email'=>$credentials['email'],'password'=>$credentials['password']])) {
             return redirect()->intended('dashboard')
                         ->withSuccess('Signed in');
         }
@@ -56,14 +59,13 @@ class CustomAuthController extends Controller
 
     public function create(array $data)
     {
-        $user = new User;
-        $user->user_name = $data['name'];
-        $user->user_email = $data['email'];
-        $user->user_password = $data['password'];
-        $user->user_phone = $data['phone'];
-        $user->user_avatar = 'none';
-
-        return $user->save();
+        return User::create([
+        'user_name' => $data['name'],
+        'user_email' => $data['email'],
+        'user_password' => Hash::make($data['password']),
+        'user_phone' =>$data['phone'],
+        'user_avatar' => 'none'
+        ]);
     }    
     
 

@@ -1,17 +1,42 @@
 <?php
-
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Group;
-use App\Models\Permission;
-class User extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
 {
-    protected $table = 'users';
+    use HasFactory, Notifiable;
     protected $primaryKey = 'user_id';
     protected $with = ['groups','permissions'];
+    public function getAuthPassword()
+    {
+        return $this->user_password;
+    }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_name',
+        'user_email',
+        'user_password',
+        'user_phone',
+        'user_avatar'
+    ];
 
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
     public function groups()
     {
         return $this->hasMany(Group::class,'group_id');
@@ -21,4 +46,12 @@ class User extends Model
     {
         return $this->hasMany(Permission::class,'permission_id');
     }
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }
