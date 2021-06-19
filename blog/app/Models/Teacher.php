@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Faculties extends Model
+class Teacher extends Model
 {
-    protected $table = 'faculties';
-    protected $primaryKey = 'faculty_id';
+    use HasFactory;
 }

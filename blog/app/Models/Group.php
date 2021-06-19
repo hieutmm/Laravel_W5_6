@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Users;
-use App\Models\Permissions;
+use App\Models\User;
+use App\Models\Permission;
 
-class Groups extends Model
+class Group extends Model
 {
     protected $table = 'groups';
     protected $primaryKey = 'group_id';
@@ -15,11 +15,11 @@ class Groups extends Model
 
     public function users()
     {
-        return $this->hasMany(Users::class);
+        return $this->hasMany(User::class,'user_id');
     }
 
     public function permissions()
     {
-        return $this->hasMany(Permissions::class);
+        return $this->hasMany(Permission::class,'permission_id');
     }
 }

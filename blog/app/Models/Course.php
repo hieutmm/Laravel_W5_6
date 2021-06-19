@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Classes;
-class Courses extends Model
+use App\Models\Class;
+class Courses+ extends Model
 {
     protected $table = 'courses';
     protected $primaryKey = 'course_id';
@@ -13,6 +13,6 @@ class Courses extends Model
 
     public function class()
     {
-        return $this->hasOne(Classes::class);
+        return $this->hasOne(Class::class,'class_id');
     }
 }

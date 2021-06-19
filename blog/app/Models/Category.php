@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Companies;
+use App\Models\Company;
 
-class Categories extends Model
+class Category extends Model
 {
     protected $table = 'categories';
-    protected $primaryKey = 'categories_id';
+    protected $primaryKey = 'category_id';
     protected $with = ['companyNames'];
 
     public function companyNames()
     {
-        return $this->hasMany(Companies::class);
+        return $this->hasMany(Company::class,'company_id');
     }
 }

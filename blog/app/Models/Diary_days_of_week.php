@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Intership_diary_weeks extends Model
+class Diary_days_of_week extends Model
 {
-    protected $table = 'intership_diary_weeks';
+    protected $table = 'diary_days_of_weeks';
     protected $primaryKey = 'intership_diary_week_id';
 }
