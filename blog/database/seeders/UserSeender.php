@@ -24,7 +24,7 @@ class UserSeender extends Seeder
             'user_phone' => '+123456789', //Random ki tu
             'user_name' => Str::random(5), //Random ki tu
             'user_avatar' => Str::random(5), //Random ki tu
-            'status' => 1,
+            'status' => 0,
         ]);
        }
     }

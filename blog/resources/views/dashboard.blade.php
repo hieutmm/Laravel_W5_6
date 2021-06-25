@@ -27,8 +27,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('signout') }}">Logout</a>
                     </li>
+                    <li class="nav-item">
+                        {{ session('user')}}
+                    </li>
                     @endguest
                 </ul>
+                <?php
+                    use Illuminate\Support\Facades\Auth;
+                    $sessionGuard = Auth::getUser();
+                    if(!empty($sessionGuard))
+                    echo $sessionGuard->user_name;
+                ?>
             </div>
         </div>
     </nav>
